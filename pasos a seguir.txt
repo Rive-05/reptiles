@@ -1,0 +1,324 @@
+================================================================================
+   MUNDO DE LOS REPTILES - GUÍA DE INSTALACIÓN Y VISUALIZACIÓN
+================================================================================
+
+📁 NOMBRE DEL PROYECTO: Mundo de los Reptiles
+📅 FECHA: 2026
+👨‍💻 TECNOLOGÍAS: HTML, CSS, JavaScript, PHP, MySQL
+
+================================================================================
+📋 REQUISITOS PREVIOS
+================================================================================
+
+Para que este proyecto funcione correctamente, necesitas tener instalado:
+
+1. ✅ XAMPP (o WAMP/MAMP)
+   - Descargar desde: https://www.apachefriends.org/
+   - Versión recomendada: 8.x o superior
+
+2. ✅ Navegador web (Chrome, Firefox, Edge, etc.)
+
+3. ✅ Espacio en disco: mínimo 100MB
+
+================================================================================
+📂 ESTRUCTURA DEL PROYECTO
+================================================================================
+
+La carpeta que recibiste tiene esta estructura:
+
+proyecto-reptiles/
+│
+├── index.html          (Página principal)
+├── css/
+│   └── styles.css      (Estilos y diseño)
+├── js/
+│   └── script.js       (Funciones interactivas)
+├── api/
+│   └── reptiles_api.php (Conexión con base de datos)
+├── config/
+│   └── database.php    (Configuración de BD)
+├── sql/
+│   └── mundo_reptiles.sql (Base de datos)
+└── imgs/
+    └── (todas las imágenes de reptiles)
+
+================================================================================
+🚀 PASOS PARA INSTALAR Y EJECUTAR
+================================================================================
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ PASO 1: Instalar XAMPP (si no lo tienes)                                    │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+1. Descarga XAMPP desde: https://www.apachefriends.org/
+2. Ejecuta el instalador
+3. Haz clic en "Siguiente" en todas las opciones
+4. IMPORTANTE: Instálalo en C:\xampp (no cambies la ruta)
+5. Al finalizar, NO ejecutes XAMPP todavía
+
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ PASO 2: Mover la carpeta del proyecto                                       │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+1. Abre el explorador de archivos de Windows
+2. Copia la carpeta COMPLETA "proyecto-reptiles"
+3. Pégala en: C:\xampp\htdocs\
+
+La ruta final debe ser: C:\xampp\htdocs\proyecto-reptiles\
+
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ PASO 3: Iniciar XAMPP                                                       │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+1. Abre XAMPP Control Panel (desde el menú inicio o escritorio)
+2. Haz clic en "Start" junto a "Apache" (debe ponerse verde)
+3. Haz clic en "Start" junto a "MySQL" (debe ponerse verde)
+4. Verifica que ambos servicios estén en color VERDE
+
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ PASO 4: Crear la base de datos                                              │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+Opción A: Usando phpMyAdmin (RECOMENDADA - Más fácil)
+────────────────────────────────────────────────────
+
+1. Abre tu navegador web
+2. Escribe: http://localhost/phpmyadmin
+3. Haz clic en "Nueva" (en el panel izquierdo)
+4. En "Nombre de la base de datos" escribe: mundo_reptiles
+5. En "Cotejamiento" selecciona: utf8mb4_general_ci
+6. Haz clic en "Crear"
+7. Haz clic en la base de datos "mundo_reptiles" (izquierda)
+8. Haz clic en la pestaña "Importar"
+9. Haz clic en "Examinar" y busca:
+   C:\xampp\htdocs\proyecto-reptiles\sql\mundo_reptiles.sql
+10. Haz clic en "Continuar" o "Ejecutar"
+11. ¡Listo! La base de datos está creada
+
+Opción B: Usando línea de comandos
+──────────────────────────────────
+
+1. Abrir CMD (Símbolo del sistema)
+2. Ejecutar:
+   cd C:\xampp\mysql\bin
+   mysql -u root -p
+   (Presiona Enter - no hay contraseña por defecto)
+3. Dentro de MySQL, ejecutar:
+   CREATE DATABASE mundo_reptiles;
+   USE mundo_reptiles;
+   SOURCE C:/xampp/htdocs/proyecto-reptiles/sql/mundo_reptiles.sql;
+   EXIT;
+
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ PASO 5: Verificar que la base de datos funciona                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+1. En tu navegador, abre: http://localhost/phpmyadmin
+2. Haz clic en "mundo_reptiles"
+3. Debes ver las siguientes tablas:
+   ✅ continentes
+   ✅ curiosidades
+   ✅ habitats
+   ✅ reptiles
+   ✅ tipos_reptiles
+   ✅ usuarios
+   ✅ y otras tablas relacionadas
+4. Haz clic en la tabla "reptiles" - debe tener al menos 10 registros
+
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ PASO 6: Abrir el proyecto en el navegador                                   │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+1. Abre tu navegador web
+2. Escribe UNA de estas direcciones (la que funcione):
+   
+   🔹 http://localhost/proyecto-reptiles/index.html
+   🔹 http://localhost/proyecto-reptiles/
+   🔹 http://127.0.0.1/proyecto-reptiles/index.html
+   🔹 http://localhost:8080/proyecto-reptiles/ (si cambiaste el puerto)
+
+3. ¡DEBERÍAS VER LA PÁGINA PRINCIPAL!
+
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ PASO 7: Probar que todo funciona correctamente                              │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+✅ Navegación: Prueba todos los botones del menú
+   - Inicio
+   - Tipos de Reptiles
+   - Mapa Interactivo
+   - Curiosidades
+   - Galería
+   - Interacción
+   - Base de Datos SQL
+
+✅ Sección "Base de Datos SQL":
+   - Haz clic en "📋 Todos los Reptiles"
+   - Debe aparecer una tabla con datos
+   - Si ves datos → ✅ Base de datos funciona
+
+✅ Sección "Interacción":
+   - Prueba el botón "¿Es peligroso?"
+   - Prueba el Quiz "¿Qué reptil soy?"
+
+✅ API (para verificar):
+   - Abre: http://localhost/proyecto-reptiles/api/reptiles_api.php?action=getAllReptiles
+   - Debes ver un JSON con datos de reptiles
+
+================================================================================
+🐛 SOLUCIÓN DE PROBLEMAS COMUNES
+================================================================================
+
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ PROBLEMA 1: "No se puede conectar a la base de datos"                       │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+SOLUCIÓN:
+1. Verifica que MySQL esté corriendo en XAMPP (debe estar en VERDE)
+2. Abre phpMyAdmin: http://localhost/phpmyadmin
+3. Si no cargan los estilos, prueba con: http://127.0.0.1/phpmyadmin
+4. Reinicia MySQL en XAMPP
+
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ PROBLEMA 2: La página no carga (404 Error)                                  │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+SOLUCIÓN:
+1. Verifica que XAMPP esté corriendo (Apache en VERDE)
+2. Verifica que la carpeta esté en: C:\xampp\htdocs\proyecto-reptiles\
+3. Prueba con: http://localhost/proyecto-reptiles/
+4. Asegúrate que el archivo se llame "index.html" (todo minúsculas)
+
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ PROBLEMA 3: La tabla de SQL no muestra datos                                │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+SOLUCIÓN:
+1. Verifica en phpMyAdmin que la base de datos se llame "mundo_reptiles"
+2. Verifica que las tablas tengan datos (mínimo 10 reptiles)
+3. Re-importa el archivo mundo_reptiles.sql
+4. Verifica el archivo api/reptiles_api.php - que tenga los datos correctos:
+   $host = 'localhost';
+   $dbname = 'mundo_reptiles';
+   $username = 'root';
+   $password = '';
+
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ PROBLEMA 4: Las imágenes no se ven                                          │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+SOLUCIÓN:
+1. Verifica que la carpeta "imgs" tenga las imágenes
+2. Verifica que los nombres de las imágenes coincidan con los del código
+3. Si no tienes imágenes, el sitio usará placeholders automáticos
+4. Puedes descargar imágenes gratis de reptiles de bancos de imágenes
+
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ PROBLEMA 5: El puerto 80 está ocupado                                       │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+SOLUCIÓN:
+1. En XAMPP, haz clic en "Config" junto a Apache
+2. Selecciona "httpd.conf"
+3. Busca "Listen 80" y cámbialo a "Listen 8080"
+4. Reinicia Apache
+5. Ahora usa: http://localhost:8080/proyecto-reptiles/
+
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ PROBLEMA 6: Error "Access denied for user"                                  │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+SOLUCIÓN:
+1. Abre phpMyAdmin
+2. Ve a "Cuentas de usuario"
+3. Si tienes contraseña en root, actualiza el archivo:
+   C:\xampp\htdocs\proyecto-reptiles\api\reptiles_api.php
+   Cambia $password = ''; por tu contraseña real
+
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ PROBLEMA 7: El Quiz no funciona                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+SOLUCIÓN:
+1. Abre las herramientas de desarrollador (F12)
+2. Ve a la pestaña "Console"
+3. Busca errores en rojo
+4. Asegúrate que el archivo script.js está completo
+5. Recarga la página con Ctrl+F5
+
+================================================================================
+📱 PROBAR EN MÓVIL O TABLET
+================================================================================
+
+1. Asegúrate que tu celular esté en la misma red WiFi que tu computadora
+2. En tu computadora, abre CMD y escribe: ipconfig
+3. Busca "IPv4" - algo como: 192.168.1.xxx
+4. En tu celular, abre el navegador y escribe:
+   http://192.168.1.xxx/proyecto-reptiles/
+5. ¡La página debe cargar responsive!
+
+================================================================================
+✅ LISTA DE VERIFICACIÓN FINAL
+================================================================================
+
+Antes de considerar que el proyecto está funcionando, verifica:
+
+[ ] XAMPP está instalado
+[ ] Apache está corriendo (verde en XAMPP)
+[ ] MySQL está corriendo (verde en XAMPP)
+[ ] La carpeta está en C:\xampp\htdocs\proyecto-reptiles\
+[ ] La base de datos "mundo_reptiles" existe en phpMyAdmin
+[ ] El archivo mundo_reptiles.sql fue importado correctamente
+[ ] La página carga en: http://localhost/proyecto-reptiles/
+[ ] Los estilos CSS se ven correctamente
+[ ] Los botones de navegación funcionan
+[ ] La sección "Base de Datos SQL" muestra una tabla con datos
+[ ] El Quiz interactivo funciona
+[ ] El juego "¿Es peligroso?" funciona
+[ ] El mapa interactivo muestra reptiles por continente
+
+================================================================================
+📞 ¿NECESITAS AYUDA?
+================================================================================
+
+Si después de seguir todos los pasos aún tienes problemas:
+
+1. Revisa los logs de error de XAMPP:
+   - Apache: C:\xampp\apache\logs\error.log
+   - PHP: C:\xampp\php\logs\php_error_log
+
+2. Verifica que todos los archivos se copiaron correctamente
+
+3. Asegúrate de seguir los pasos EN ORDEN
+
+4. Si el problema persiste, contacta al desarrollador con:
+   - Captura de pantalla del error
+   - Qué paso específico falló
+   - Qué sistema operativo usas (Windows, Mac, Linux)
+
+================================================================================
+📝 NOTAS ADICIONALES
+================================================================================
+
+- El proyecto fue desarrollado y probado en 2026
+- Compatible con Windows 10/11, MacOS y Linux
+- Requiere conexión a internet solo para la primera instalación de XAMPP
+- Las imágenes son ilustrativas, puedes reemplazarlas por las que prefieras
+- La base de datos incluye 10 reptiles de ejemplo, puedes agregar más
+
+================================================================================
+🎉 ¡DISFRUTA DEL MUNDO DE LOS REPTILES! 🎉
+================================================================================

@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Mundo de los Reptiles</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <div class="header-top">
+            <div class="logo-title">
+                <h1>🦎 El Mundo de los Reptiles 🐍</h1>
+            </div>
+            <div class="user-area">
+                <div id="authButtons">
+                    <button id="loginBtn" class="btn-login-top" onclick="window.location.href='login.html'">🔐 Iniciar Sesión</button>
+                    <button id="logoutBtn" class="btn-login-top" style="display:none;" onclick="cerrarSesion()">🚪 Cerrar Sesión</button>
+                </div>
+                <div id="userInfo" style="display:none;" class="user-info-top">
+                    <span id="userName"></span>
+                </div>
+            </div>
+        </div>
+        <nav class="main-nav">
+            <button onclick="showSection('home')">🏠 Inicio</button>
+            <button onclick="showSection('types')">🦎 Tipos de Reptiles</button>
+            <button onclick="showSection('map')">🗺️ Reptiles por Continente</button>
+            <button onclick="showSection('curiosities')">✨ Curiosidades</button>
+            <button onclick="showSection('gallery')">📸 Galería</button>
+            <button onclick="showSection('interaction')">🎮 Juegos y Aprendizaje</button>
+            <button onclick="showSection('database')">📋 Ver todos los reptiles</button>
+            <button onclick="showSection('news')">📰 Noticias API</button>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="active">
+            <div class="hero">
+                <img src="imgs/hero.jpg" alt="Reptil en la naturaleza" onerror="this.src='https://via.placeholder.com/800x400?text=Reptil'">
+                <h2>Descubre los reptiles más fascinantes del planeta</h2>
+                <p>Explora nuestra base de datos con más de 50 especies de reptiles de todo el mundo</p>
+                <button onclick="showSection('database')">📋 Ver todos los reptiles</button>
+            </div>
+        </section>
+
+        <section id="types">
+            <h2>Tipos de Reptiles</h2>
+            <div class="categories">
+                <div class="card" onclick="showInfo('snakes')">
+                    <h3>🐍 Serpientes</h3>
+                    <img src="imgs/serpiente1.jpg" alt="Serpiente" onerror="this.src='https://via.placeholder.com/250x160?text=Serpiente'">
+                </div>
+                <div class="card" onclick="showInfo('lizards')">
+                    <h3>🦎 Lagartos</h3>
+                    <img src="imgs/lagarto1.jpg" alt="Lagarto" onerror="this.src='https://via.placeholder.com/250x160?text=Lagarto'">
+                </div>
+                <div class="card" onclick="showInfo('turtles')">
+                    <h3>🐢 Tortugas</h3>
+                    <img src="imgs/totuga1.jpg" alt="Tortuga" onerror="this.src='https://via.placeholder.com/250x160?text=Tortuga'">
+                </div>
+                <div class="card" onclick="showInfo('crocodiles')">
+                    <h3>🐊 Cocodrilos</h3>
+                    <img src="imgs/cocodrilo1.jpg" alt="Cocodrilo" onerror="this.src='https://via.placeholder.com/250x160?text=Cocodrilo'">
+                </div>
+            </div>
+            <div id="info" class="info-panel"></div>
+        </section>
+
+        <section id="map">
+            <h2>🗺️ Reptiles por Continente</h2>
+            <div class="map">
+                <div class="continent" onclick="showReptiles('africa')">🌍 África</div>
+                <div class="continent" onclick="showReptiles('america')">🌎 América</div>
+                <div class="continent" onclick="showReptiles('asia')">🌏 Asia</div>
+                <div class="continent" onclick="showReptiles('australia')">🦘 Australia</div>
+                <div class="continent" onclick="showReptiles('europe')">🌍 Europa</div>
+            </div>
+            <div id="reptiles-list" class="reptiles-list"></div>
+        </section>
+
+        <section id="curiosities">
+            <h2>✨ Curiosidades ✨</h2>
+            <div class="curiosity-cards">
+                <div class="card">
+                    <p>🦎 Los reptiles son de sangre fría</p>
+                    <img src="imgs/camaleon1.jpg" alt="Camaleón" onerror="this.src='https://via.placeholder.com/250x160?text=Camaleón'">
+                </div>
+                <div class="card">
+                    <p>🐢 Algunas tortugas viven más de 100 años</p>
+                    <img src="imgs/tortuga2.jpg" alt="Tortuga Gigante" onerror="this.src='https://via.placeholder.com/250x160?text=Tortuga'">
+                </div>
+                <div class="card">
+                    <p>🐍 Algunas serpientes detectan calor</p>
+                    <img src="imgs/piton.jpg" alt="Serpiente Pitón" onerror="this.src='https://via.placeholder.com/250x160?text=Pitón'">
+                </div>
+                <div class="card">
+                    <p>🦎 Los camaleones cambian de color</p>
+                    <img src="imgs/CamaleónMadagascar.jpg" alt="Camaleón colorido" onerror="this.src='https://via.placeholder.com/250x160?text=Camaleón'">
+                </div>
+                <div class="card">
+                    <p>🐊 Los cocodrilos lloran mientras comen</p>
+                    <img src="imgs/cocodrilo1.jpg" alt="Cocodrilo" onerror="this.src='https://via.placeholder.com/250x160?text=Cocodrilo'">
+                </div>
+                <div class="card">
+                    <p>🦎 Las iguanas tienen un tercer ojo</p>
+                    <img src="imgs/IguanaVerde.jpg" alt="Iguana" onerror="this.src='https://via.placeholder.com/250x160?text=Iguana'">
+                </div>
+                <div class="card">
+                    <p>🐍 La mamba negra es la más rápida</p>
+                    <img src="imgs/serpiente1.jpg" alt="Mamba negra" onerror="this.src='https://via.placeholder.com/250x160?text=Serpiente'">
+                </div>
+                <div class="card">
+                    <p>🐢 Las tortugas marinas viajan 16,000 km al año</p>
+                    <img src="imgs/tortugaMarina.jpg" alt="Tortuga marina" onerror="this.src='https://via.placeholder.com/250x160?text=Tortuga+Marina'">
+                </div>
+                <div class="card">
+                    <p>🐉 El dragón de Komodo tiene saliva mortal</p>
+                    <img src="imgs/Dragón de Komodo.jpg" alt="Dragón de Komodo" onerror="this.src='https://via.placeholder.com/250x160?text=Dragon+Komodo'">
+                </div>
+                <div class="card">
+                    <p>🦎 Los geckos pueden caminar por paredes</p>
+                    <img src="imgs/lagarto1.jpg" alt="Gecko" onerror="this.src='https://via.placeholder.com/250x160?text=Gecko'">
+                </div>
+            </div>
+        </section>
+
+        <section id="gallery">
+            <h2>📸 Galería de Reptiles 📸</h2>
+            <div class="gallery">
+                <div class="gallery-item">
+                    <img src="imgs/Serpiente-América.jpg" alt="Serpiente" onerror="this.src='https://via.placeholder.com/300x220?text=Serpiente'">
+                    <div class="overlay">🐍 Serpiente - América</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="imgs/IguanaVerde.jpg" alt="Iguana Verde" onerror="this.src='https://via.placeholder.com/300x220?text=Iguana'">
+                    <div class="overlay">🦎 Iguana Verde - Centroamérica</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="imgs/tortugaMarina.jpg" alt="Tortuga Marina" onerror="this.src='https://via.placeholder.com/300x220?text=Tortuga'">
+                    <div class="overlay">🐢 Tortuga Marina - Océanos</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="imgs/cocodriloAfrica.jpg" alt="Cocodrilo" onerror="this.src='https://via.placeholder.com/300x220?text=Cocodrilo'">
+                    <div class="overlay">🐊 Cocodrilo - África</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="imgs/camaleon2.jpg" alt="Camaleón" onerror="this.src='https://via.placeholder.com/300x220?text=Camaleón'">
+                    <div class="overlay">🦎 Camaleón - Madagascar</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="imgs/Dragón de Komodo.jpg" alt="Dragón de Komodo" onerror="this.src='https://via.placeholder.com/300x220?text=Dragon+Komodo'">
+                    <div class="overlay">🐉 Dragón de Komodo - Indonesia</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="interaction">
+            <h2>🎮 Juegos y Aprendizaje 🎮</h2>
+            <div class="game-section">
+                <h3 class="game-title">🐊 Adivina si es peligroso</h3>
+                <button onclick="checkDanger()" class="interaction-btn">🎲 Jugar ahora</button>
+                <div id="danger-result"></div>
+            </div>
+            <div class="game-section">
+                <h3 class="quiz-title">📝 Quiz: ¿Qué reptil eres?</h3>
+                <div id="quiz"></div>
+                <div id="quiz-result"></div>
+            </div>
+        </section>
+
+        <section id="database">
+            <h2>📋 Lista completa de reptiles</h2>
+            <div class="database-container">
+                <div class="sql-panel">
+                    <div class="sql-controls">
+                        <button onclick="loadSQLData('all')" class="sql-btn">📋 Todos los Reptiles</button>
+                        <button onclick="loadSQLData('peligrosos')" class="sql-btn">⚠️ Más Peligrosos</button>
+                        <button onclick="loadSQLData('estadisticas')" class="sql-btn">📊 Estadísticas</button>
+                        <button onclick="loadSQLData('curiosidades')" class="sql-btn">✨ Curiosidades DB</button>
+                        <button onclick="showQueryEditor()" class="sql-btn">✏️ Editor SQL</button>
+                    </div>
+                    
+                    <div id="query-editor" style="display: none;" class="query-editor">
+                        <h3>🔍 Ejecutar consulta SQL personalizada</h3>
+                        <textarea id="sql-query" rows="5" placeholder="Ejemplo: SELECT * FROM reptiles WHERE es_peligroso_para_humanos = TRUE" class="sql-textarea"></textarea>
+                        <div class="query-buttons">
+                            <button onclick="executeCustomQuery()" class="execute-btn">▶️ Ejecutar</button>
+                            <button onclick="showExamples()" class="examples-btn">📚 Ver ejemplos</button>
+                        </div>
+                        <div id="query-examples" style="display: none;" class="query-examples">
+                            <h4>Consultas de ejemplo:</h4>
+                            <ul>
+                                <li onclick="setExample('SELECT * FROM reptiles WHERE esperanza_vida_anos > 50')">🔹 Reptiles que viven más de 50 años</li>
+                                <li onclick="setExample('SELECT nombre_comun, longitud_maxima_cm FROM reptiles ORDER BY longitud_maxima_cm DESC LIMIT 5')">🔹 Los 5 reptiles más largos</li>
+                                <li onclick="setExample('SELECT tr.nombre, COUNT(*) as total FROM reptiles r JOIN tipos_reptiles tr ON r.tipo_reptil_id = tr.id GROUP BY tr.id')">🔹 Cantidad por tipo de reptil</li>
+                                <li onclick="setExample('SELECT * FROM reptiles WHERE es_venenoso = TRUE AND nivel_peligrosidad >= 4')">🔹 Reptiles muy venenosos</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="sql-results" class="sql-results">
+                    <div class="loading" style="display: none;">🔄 Cargando datos...</div>
+                    <div class="results-header">
+                        <h3>📊 Resultados</h3>
+                        <span id="result-count" class="result-count"></span>
+                    </div>
+                    <div id="results-table" class="results-table"></div>
+                </div>
+                
+                <div class="db-info">
+                    <details>
+                        <summary>📖 Estructura de la Base de Datos</summary>
+                        <div class="db-schema">
+                            <h4>Tablas principales:</h4>
+                            <ul>
+                                <li><strong>reptiles</strong> - Información completa de cada especie</li>
+                                <li><strong>tipos_reptiles</strong> - Clasificación</li>
+                                <li><strong>continentes</strong> - Distribución geográfica</li>
+                                <li><strong>habitats</strong> - Ecosistemas</li>
+                                <li><strong>usuarios</strong> - Usuarios registrados</li>
+                            </ul>
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================ -->
+        <!-- SECCIÓN API DE NOTICIAS -->
+        <!-- ============================================ -->
+        <section id="news">
+    <h2>📰 Información sobre Reptiles 🌍</h2>
+    <div class="api-container">
+        <div class="api-controls">
+            <button onclick="cargarNoticias()" class="api-btn">📖 Información General</button>
+            <button onclick="cargarCuriosidades()" class="api-btn">✨ Datos Curiosos</button>
+            <select id="categoriaNoticias" onchange="cargarNoticiasPorCategoria()" class="api-select">
+                <option value="reptiles">📌 Todos los reptiles</option>
+                <option value="snakes">🐍 Serpientes</option>
+                <option value="lizards">🦎 Lagartos</option>
+                <option value="turtles">🐢 Tortugas</option>
+                <option value="crocodiles">🐊 Cocodrilos</option>
+                <option value="conservation">🌱 Conservación</option>
+            </select>
+        </div>
+        <div id="noticias-container" class="noticias-grid">
+            <div class="loading-api">🔍 Selecciona una opción para ver información sobre reptiles</div>
+        </div>
+    </div>
+</section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-info">
+                <p>🐊 El Mundo de los Reptiles | Todos los derechos reservados © 2026</p>
+                <p>📊 Base de datos con información científica actualizada</p>
+            </div>
+            <div class="footer-social">
+                <a href="#" class="social-link" target="_blank" rel="noopener noreferrer">📷 Instagram</a>
+                <a href="#" class="social-link" target="_blank" rel="noopener noreferrer">📘 Facebook</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            if (document.getElementById('quiz')) {
+                iniciarQuiz();
+            }
+        });
+    </script>
+</body>
+</html>
